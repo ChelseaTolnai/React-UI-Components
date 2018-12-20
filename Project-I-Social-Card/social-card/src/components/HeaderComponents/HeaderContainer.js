@@ -5,12 +5,11 @@ import HeaderContent from './HeaderContent';
 
 const HeaderContainer = () => {
     return (
-      <div className="HeaderContainer">
-        <h3>HeaderContainer</h3>
-        <ImageThumbnail />
-        <HeaderContent />
-      </div>
+        <div className="HeaderContainer">
+            <ImageThumbnail />
+            <HeaderContent />
+        </div>
     );
-  };
+};
   
 export default HeaderContainer;
