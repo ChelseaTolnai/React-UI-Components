@@ -1,17 +1,36 @@
 /* All styles for your header Components live here */
 
 .HeaderContainer {
-    border: 1px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 12px 7px 11px;
 }
 
-.ImageThumbnail {
-    border: 1px solid green;
+.ImageThumbnail img {
+    width: 54px;
 }
 
 .HeaderContent {
-    border: 1px solid lightblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 4px 7px; 
 }
 
 .HeaderTitle {
-    border: 1px solid pink;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
+    margin-bottom: 9px;
+}
+
+.HeaderTitle h3 {
+    margin-left: 4px;
+}
+
+.space {
+    margin-left: 4px;
 }

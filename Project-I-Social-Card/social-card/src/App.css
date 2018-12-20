@@ -2,7 +2,39 @@
   Write your styles/CSS for App.js here and import into the component that you need 
   IF you'd like to attempt to use less you'll have to research how to do this with Create React App
 */
+@import './components/HeaderComponents/Header.css';
+@import './components/CardComponents/Card.css';
+@import './components/FooterComponents/Footer.css';
 
 .App {
-  border: 1px solid blue;
+  max-width: 590px;  
+}
+
+.HeaderContainer, .CardContainer, .Footer {
+  margin-right: 16px;
+}
+
+h1, h2, h3, h4, p, img {
+  margin: 0;
+}
+
+h1 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 12.7px;
+  font-weight: 500;
+  color: gray;
+}
+
+p {
+  font-size: 14.2px;
+  font-weight: 500;
+  line-height: 17px;
 }
