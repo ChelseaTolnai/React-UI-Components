@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Button.css';
 
-const ActionButton = props => {
-    return (
-        <button className={props.buttonStyle} id={props.id}>{props.text}</button>
-    );
+class ActionButton extends Component {
+    constructor () {
+        super();
+        this.state ={};
+    }
+    
+    render () {
+        return (
+            <button className={this.props.buttonStyle} id={this.props.id}>{this.props.text}</button>
+        );
+    }
 };
   
 export default ActionButton;

@@ -1,39 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Button.css';
 import ActionButton from './ActionButton';
 import NumberButton from './NumberButton'
+import OperatorButton from './OperatorButton'
 
-const CalculatorButtons = () => {
-    return (
-        <div className="CalculatorButtons">
-            <div className="numbers-reset">
-                
-                <ActionButton buttonStyle="action" text="clear" id="clear"/>
 
-                <div className="numbers">
-                    <NumberButton buttonStyle="number" text="1"/>
-                    <NumberButton buttonStyle="number" text="2"/>
-                    <NumberButton buttonStyle="number" text="3"/>
-                    <NumberButton buttonStyle="number" text="4"/>
-                    <NumberButton buttonStyle="number" text="5"/>
-                    <NumberButton buttonStyle="number" text="6"/>
-                    <NumberButton buttonStyle="number" text="7"/>
-                    <NumberButton buttonStyle="number" text="8"/>
-                    <NumberButton buttonStyle="number" text="9"/>
+class  CalculatorButtons extends Component {
+    constructor () {
+        super();
+        this.state ={};
+    }
+
+    render() {
+        return (
+            <div className="CalculatorButtons">
+                <div className="numbers-reset">
+                    <ActionButton buttonStyle="action" text="clear" id="clear"/>
+                    <NumberButton />
+                    <ActionButton buttonStyle="action" text="0" id="zero"/>
                 </div>
-
-                <ActionButton buttonStyle="action" text="0" id="zero"/>
-                
+                <OperatorButton />
             </div>
-            <div className="operators">
-                <NumberButton buttonStyle="operator" text="&divide;"/>
-                <NumberButton buttonStyle="operator" text="&times;"/>
-                <NumberButton buttonStyle="operator" text="&minus;"/>
-                <NumberButton buttonStyle="operator" text="+"/>
-                <NumberButton buttonStyle="operator" text="="/>
-            </div>
-        </div>
-    );
+        );
+    }
 };
   
 export default CalculatorButtons;
