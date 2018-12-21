@@ -13,25 +13,49 @@ class App  extends Component {
     this.state={
       display: this.result,
     };
-    this.handleClickNum = this.handleClickNum.bind(this);
-    this.handleClickReset = this.handleClickReset.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClickNum (e) {
-    if (this.result[0] === "0") {this.result.shift()}
+  handleClick (e) {
+    if (this.result[0] === "0") {
+      this.result = [""];
+      this.setState ({
+        display: this.result,
+      });
+    }
+
+    if (this.result[0] === "=") {
+      this.result = [""];
+      this.setState ({
+        display: this.result,
+      });
+    }
+
+    let id = e.target.getAttribute('id');
+    if (id === "clear") {
+      this.result = ["0"];
+      this.setState ({
+        display: this.result,
+      });
+      return;
+    }
+
     let value = e.target.getAttribute('value');
+    if (value === "=") {
+      let calculate = eval(this.result.join(''));
+      this.result = ["=", calculate.toString().slice(0, 10)];
+      this.setState ({
+        display: this.result,
+      });
+      return;
+    }
+
     this.result.push(value);
     this.setState ({
-      display: this.result,
+      display: this.result.join(''),
     });
   }
 
-  handleClickReset (e) {
-    this.result = ["0"]
-    this.setState ({
-      display: this.result,
-    });
-  }
 
   render () {
     return (
@@ -40,11 +64,11 @@ class App  extends Component {
 
         <div className="CalculatorButtons">
           <div className="numbers-reset">
-              <ActionButton onClick={this.handleClickReset} buttonStyle="action" text="clear" id="clear"/>
-              <NumberButton onClick={this.handleClickNum}/>
-              <ActionButton onClick={this.handleClickNum} buttonStyle="action" text="0" id="zero" value={0}/>
+              <ActionButton onClick={this.handleClick} buttonStyle="action" text="clear" id="clear"/>
+              <NumberButton onClick={this.handleClick}/>
+              <ActionButton onClick={this.handleClick} buttonStyle="action" text="0" id="zero" value={0}/>
           </div>
-          <OperatorButton />
+          <OperatorButton onClick={this.handleClick}/>
         </div>
 
       </div>

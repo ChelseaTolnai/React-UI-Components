@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import './Button.css';
 
 const operatorList = [
-    {text: <span>&divide;</span>, value: "/"},
-    {text: <span>&times;</span>, value: "*"},
-    {text: <span>&minus;</span>, value: "-"},
-    {text: "+", value: "+"},
+    {text: "\u00F7", value: "/"},
+    {text: "\u00D7", value: "*"},
+    {text: "\u2212", value: "-"},
+    {text: "\u002B", value: "+"},
     {text: "=", value: "="},
 ];
 
@@ -22,7 +22,7 @@ class OperatorButton extends Component {
             <div className="operators">
                 {this.state.operators.map(operator => {
                     return (
-                        <button className="operator" key={operator.value} value={operator.value}>{operator.text}</button>
+                        <button onClick={this.props.onClick} className="operator" key={operator.value} value={operator.value}>{operator.text}</button>
                     )}
                 )}
             </div>    
