@@ -9,7 +9,7 @@ class ActionButton extends Component {
     
     render () {
         return (
-            <button className={this.props.buttonStyle} id={this.props.id}>{this.props.text}</button>
+            <button onClick={this.props.onClick} className={this.props.buttonStyle} id={this.props.id} value={this.props.value}>{this.props.text}</button>
         );
     }
 };

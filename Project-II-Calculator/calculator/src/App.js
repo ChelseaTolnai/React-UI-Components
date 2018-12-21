@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import CalculatorDisplay from '../src/components/DisplayComponents/CalculatorDisplay';
-// import CalculatorButtons from '../src/components/ButtonComponents/CalculatorButtons';
 import '../src/components/ButtonComponents/Button.css';
 import ActionButton from '../src/components/ButtonComponents/ActionButton';
 import NumberButton from '../src/components/ButtonComponents/NumberButton'
@@ -10,16 +9,27 @@ import OperatorButton from '../src/components/ButtonComponents/OperatorButton'
 class App  extends Component {
   constructor () {
     super();
+    this.result = ["0"];
     this.state={
-      display: [],
+      display: this.result,
     };
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickNum = this.handleClickNum.bind(this);
+    this.handleClickReset = this.handleClickReset.bind(this);
   }
 
-  handleClick (e) {
+  handleClickNum (e) {
+    if (this.result[0] === "0") {this.result.shift()}
     let value = e.target.getAttribute('value');
+    this.result.push(value);
     this.setState ({
-      display: value,
+      display: this.result,
+    });
+  }
+
+  handleClickReset (e) {
+    this.result = ["0"]
+    this.setState ({
+      display: this.result,
     });
   }
 
@@ -27,13 +37,12 @@ class App  extends Component {
     return (
       <div className="App">
         <CalculatorDisplay display={this.state.display}/>
-        {/* <CalculatorButtons onClick={this.handleClick} /> */}
 
         <div className="CalculatorButtons">
           <div className="numbers-reset">
-              <ActionButton buttonStyle="action" text="clear" id="clear"/>
-              <NumberButton onClick={this.handleClick}/>
-              <ActionButton buttonStyle="action" text="0" id="zero"/>
+              <ActionButton onClick={this.handleClickReset} buttonStyle="action" text="clear" id="clear"/>
+              <NumberButton onClick={this.handleClickNum}/>
+              <ActionButton onClick={this.handleClickNum} buttonStyle="action" text="0" id="zero" value={0}/>
           </div>
           <OperatorButton />
         </div>
