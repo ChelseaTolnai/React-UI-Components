@@ -17,7 +17,7 @@ class NumberButton extends Component {
             <div className="numbers">
                 {this.state.numbers.map(number => {
                     return (
-                        <button className="number" key={number} value={number}>{number}</button>
+                        <button onClick={this.props.onClick} className="number" key={number} value={number}>{number}</button>
                     )}
                 )}
             </div>             
