@@ -1,7 +1,7 @@
 import React from 'react';
 import './Footer.css';
 
-import HeaderTitle from '../HeaderComponents/HeaderTitle';
+// import HeaderTitle from '../HeaderComponents/HeaderTitle';
 
 class Footer extends React.Component {
   constructor(props) {
