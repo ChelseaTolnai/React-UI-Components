@@ -1,21 +1,53 @@
 import React from 'react';
 import './Footer.css';
+import FooterComment from './FooterComment'
+import FooterCommentForm from './FooterCommentForm'
+import HeaderTitle from '../HeaderComponents/HeaderTitle'
 
-// import HeaderTitle from '../HeaderComponents/HeaderTitle';
+const commentArray = [];
 
 class Footer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      isCommentOff: true,
       isShareOff: true,
       isLikeOff: true,
+      comments: commentArray,
+      commentText: '',
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleAddComment = this.handleAddComment.bind(this);
+    this.handleClickComment = this.handleClickComment.bind(this);
     this.handleClickShare = this.handleClickShare.bind(this);
     this.handleClickLike = this.handleClickLike.bind(this);
   }
 
+  handleChange(e) {
+    this.setState({commentText: e.target.value});
+  }
+
+  handleAddComment(e) {
+    if (this.state.commentText === ''){return}
+
+    if (e.type === 'keydown') {
+      if(e.key !== 'Enter') {return} 
+    }
+    
+    this.state.comments.push(
+      {
+        author: <HeaderTitle />,
+        comment: this.state.commentText,
+        id: Date.now(),
+      }
+    )
+    this.setState({comments: this.state.comments, commentText: ''});
+  }
+
   handleClickComment() {
-    alert("Comment ability coming soon.");
+    this.setState(state => ({
+      isCommentOff: !state.isCommentOff 
+    }));
   }
 
   handleClickShare() {
@@ -38,7 +70,7 @@ class Footer extends React.Component {
         <div className="icon-container">       
           <div className="comments">
             <i className="material-icons flip" onClick={this.handleClickComment}>chat_bubble_outline</i>
-            <p> </p>
+            <p>{this.state.comments.length}</p>
           </div>
           <div className="recycles">
             <div>
@@ -62,8 +94,15 @@ class Footer extends React.Component {
           </a>
         </div>
         </div> 
-        <div className="comment-container hide">
-          
+        <div className={`comment-container ${this.state.isCommentOff ? 'hide' : null}`}>
+          <FooterComment 
+            commentList={this.state.comments}
+          />
+          <FooterCommentForm 
+            inputValue={this.state.commentText}
+            updateCommentList={this.handleChange}
+            updateAddComment={this.handleAddComment}
+          />
         </div>
       </div>
     );

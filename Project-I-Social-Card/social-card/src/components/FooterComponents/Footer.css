@@ -49,14 +49,22 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    margin-right: 45px;
+}
+
+.messages{
     margin-right: 50px;
 }
 
-.likes{
-    margin-right: 40px;
+.hide {
+    display: none;
 }
 
 .comment-container {
+    margin-top: 10px;
+}
+
+textarea {
     border: 1px solid #dddddd;
     border-radius: 5px;
 }
