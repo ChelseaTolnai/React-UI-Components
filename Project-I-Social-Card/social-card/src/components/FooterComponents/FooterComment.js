@@ -6,9 +6,9 @@ const FooterComment = props => {
         <div className='comment-list'>
             {props.commentList.map( comment => {
                 return (
-                    <div key={comment.id}>
+                    <div key={comment.id} className='comment-item'>
                         {comment.author}
-                        {comment.comment}
+                        <p>{comment.comment}</p>
                     </div>
                 )
             })}

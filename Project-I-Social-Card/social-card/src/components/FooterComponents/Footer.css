@@ -5,7 +5,7 @@
     padding-bottom: 21px;
 }
 
-.Footer p {
+.Footer .icon-container p {
     font-size: 13px;
     font-weight: 600;
     padding-top: 2px;
@@ -61,10 +61,29 @@
 }
 
 .comment-container {
+    border: 1px solid #dddddd;
+    border-radius: 5px;
     margin-top: 10px;
 }
 
-textarea {
+.comment-container h2 {
+    font-size: 16px;
+    text-decoration: underline;
+    margin: 13px 13px;
+}
+
+.comment-item {
+    margin: 13px 13px;
+    border-bottom: 1px solid #dddddd;
+}
+
+textarea, button {
     border: 1px solid #dddddd;
     border-radius: 5px;
+    margin: 0 13px 13px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #dddddd;
 }

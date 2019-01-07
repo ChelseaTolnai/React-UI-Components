@@ -95,6 +95,7 @@ class Footer extends React.Component {
         </div>
         </div> 
         <div className={`comment-container ${this.state.isCommentOff ? 'hide' : null}`}>
+          <h2>Comments</h2>
           <FooterComment 
             commentList={this.state.comments}
           />
