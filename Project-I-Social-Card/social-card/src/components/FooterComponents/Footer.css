@@ -1,9 +1,5 @@
 
 .Footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: baseline;
     margin-left: 68px;
     padding-top: 18px;
     padding-bottom: 21px;
@@ -15,6 +11,13 @@
     padding-top: 2px;
     padding-left: 8px;
     color: gray;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
 }
 
 .material-icons {
@@ -51,4 +54,9 @@
 
 .likes{
     margin-right: 40px;
+}
+
+.comment-container {
+    border: 1px solid #dddddd;
+    border-radius: 5px;
 }
