@@ -1,20 +1,23 @@
 
 .Footer {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: baseline;
     margin-left: 68px;
     padding-top: 18px;
     padding-bottom: 21px;
 }
 
-.Footer p {
+.Footer .icon-container p {
     font-size: 13px;
     font-weight: 600;
     padding-top: 2px;
     padding-left: 8px;
     color: gray;
+}
+
+.icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: baseline;
 }
 
 .material-icons {
@@ -46,9 +49,41 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    margin-right: 45px;
+}
+
+.messages{
     margin-right: 50px;
 }
 
-.likes{
-    margin-right: 40px;
+.hide {
+    display: none;
+}
+
+.comment-container {
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.comment-container h2 {
+    font-size: 16px;
+    text-decoration: underline;
+    margin: 13px 13px;
+}
+
+.comment-item {
+    margin: 13px 13px;
+    border-bottom: 1px solid #dddddd;
+}
+
+textarea, button {
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin: 0 13px 13px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #dddddd;
 }
