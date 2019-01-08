@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
 import CalculatorDisplay from '../src/components/DisplayComponents/CalculatorDisplay';
-import '../src/components/ButtonComponents/Button.css';
 import ActionButton from '../src/components/ButtonComponents/ActionButton';
 import NumberButton from '../src/components/ButtonComponents/NumberButton'
 import OperatorButton from '../src/components/ButtonComponents/OperatorButton'
 
-class App  extends Component {
+import './App.css';
+import '../src/components/ButtonComponents/Button.css'
+
+class App extends Component {
   constructor () {
     super();
     this.result = ["0"];
     this.state={
       display: this.result,
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick (e) {
+  handleClick = (e) => {
     if (this.result[0] === "0") {
       this.result = [""];
       this.setState ({
