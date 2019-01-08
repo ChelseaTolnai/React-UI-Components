@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import CalculatorDisplay from '../src/components/DisplayComponents/CalculatorDisplay';
 import ActionButton from '../src/components/ButtonComponents/ActionButton';
 import NumberButton from '../src/components/ButtonComponents/NumberButton'
@@ -17,6 +18,9 @@ class App extends Component {
   }
 
   handleClick = (e) => {
+    document.querySelectorAll("button").forEach( btn => btn.classList.remove("clicked"));
+    e.target.classList.add("clicked");
+
     if (this.result[0] === "0") {
       this.result = [""];
       this.setState ({
@@ -42,7 +46,7 @@ class App extends Component {
 
     let value = e.target.getAttribute('value');
     if (value === "=") {
-      let calculate = eval(this.result.join(''));
+      let calculate = Function(' "use strict"; return (' + this.result.join('') + ')')();
       this.result = ["=", calculate.toString().slice(0, 10)];
       this.setState ({
         display: this.result,
@@ -56,7 +60,6 @@ class App extends Component {
     });
   }
 
-
   render () {
     return (
       <div className="App">
@@ -64,9 +67,9 @@ class App extends Component {
 
         <div className="CalculatorButtons">
           <div className="numbers-reset">
-              <ActionButton onClick={this.handleClick} buttonStyle="action" text="clear" id="clear"/>
-              <NumberButton onClick={this.handleClick}/>
-              <ActionButton onClick={this.handleClick} buttonStyle="action" text="0" id="zero" value={0}/>
+            <ActionButton onClick={this.handleClick} buttonStyle="action" text="clear" id="clear" />
+            <NumberButton onClick={this.handleClick} />
+            <ActionButton onClick={this.handleClick} buttonStyle="action" text="0" id="zero" value={0} />
           </div>
           <OperatorButton onClick={this.handleClick}/>
         </div>

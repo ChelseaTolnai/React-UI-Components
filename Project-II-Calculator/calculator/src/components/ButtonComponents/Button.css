@@ -54,6 +54,10 @@
     border: 1px solid gray;
 }
 
+.clicked {
+    background-color: gray;
+}
+
 #clear {
     font-size: 46px;
     font-weight: 300;

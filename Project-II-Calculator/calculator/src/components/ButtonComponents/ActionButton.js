@@ -5,7 +5,9 @@ const ActionButton = (props) => {
     return (
         <button 
             onClick={props.onClick} 
-            className={props.buttonStyle} 
+            onMouseDown={props.onMouseDown} 
+            onMouseUp={props.onMouseUp} 
+            className={`${props.buttonStyle} ${props.clickStatus}`} 
             id={props.id} 
             value={props.value}
         >
