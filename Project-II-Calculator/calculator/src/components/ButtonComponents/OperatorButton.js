@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Button.css';
 
 const operatorList = [
@@ -9,25 +9,23 @@ const operatorList = [
     {text: "=", value: "="},
 ];
 
-class OperatorButton extends Component {
-    constructor () {
-        super();
-        this.state ={
-            operators: operatorList,
-        };
-    }
-
-    render () {
-        return (
-            <div className="operators">
-                {this.state.operators.map(operator => {
-                    return (
-                        <button onClick={this.props.onClick} className="operator" key={operator.value} value={operator.value}>{operator.text}</button>
-                    )}
+const OperatorButton = (props) => {
+    return (
+        <div className="operators">
+            {operatorList.map(operator => {
+                return (
+                    <button 
+                        onClick={props.onClick} 
+                        className="operator" 
+                        key={operator.value} 
+                        value={operator.value}
+                    >
+                        {operator.text}
+                    </button>
                 )}
-            </div>    
-        ); 
-    }
+            )}
+        </div>    
+    )
 };
   
 export default OperatorButton;
